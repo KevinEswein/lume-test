@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Lume Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<!-- JSPM Generator Import Map - Edit URL: https://generator.jspm.io/#U2VhYGBkDM0rySzJSU1hyCnNTXUw0DPWM9BNzCnISNQzMQEADGFWCCIA -->
+<script type="importmap">
+    {
+      "imports": {
+        "lume": "https://ga.jspm.io/npm:lume@0.3.0-alpha.44/dist/index.js"
+      },
+      "scopes": {
+        "https://ga.jspm.io/": {
+          "@lume/autolayout": "https://ga.jspm.io/npm:@lume/autolayout@0.10.2/dist/AutoLayout.js",
+          "@lume/custom-attributes/dist/index.js": "https://ga.jspm.io/npm:@lume/custom-attributes@0.2.4/dist/index.js",
+          "@lume/element": "https://ga.jspm.io/npm:@lume/element@0.13.1/dist/index.js",
+          "@lume/eventful": "https://ga.jspm.io/npm:@lume/eventful@0.3.3/dist/index.js",
+          "@lume/kiwi": "https://ga.jspm.io/npm:@lume/kiwi@0.4.4/dist/kiwi.js",
+          "@lume/three-projected-material/dist/ProjectedMaterial.js": "https://ga.jspm.io/npm:@lume/three-projected-material@0.3.1/dist/ProjectedMaterial.js",
+          "classy-solid": "https://ga.jspm.io/npm:classy-solid@0.4.3/dist/index.js",
+          "element-behaviors": "https://ga.jspm.io/npm:element-behaviors@5.0.5/dist/index.js",
+          "james-bond": "https://ga.jspm.io/npm:james-bond@0.7.4/dist/index.js",
+          "lowclass/dist/": "https://ga.jspm.io/npm:lowclass@8.0.2/dist/",
+          "regexr": "https://ga.jspm.io/npm:regexr@2.0.4/dist/index.js",
+          "solid-js": "https://ga.jspm.io/npm:solid-js@1.9.4/dist/dev.js",
+          "solid-js/html": "https://ga.jspm.io/npm:solid-js@1.9.4/html/dist/html.js",
+          "solid-js/store": "https://ga.jspm.io/npm:solid-js@1.9.4/store/dist/dev.js",
+          "solid-js/web": "https://ga.jspm.io/npm:solid-js@1.9.4/web/dist/dev.js",
+          "three": "https://ga.jspm.io/npm:three@0.172.0/build/three.module.js",
+          "three/": "https://ga.jspm.io/npm:three@0.172.0/"
+        }
+      }
+    }
+</script>
+
+<!-- ES Module Shims import maps polyfills -->
+<!--<script async src="https://ga.jspm.io/npm:es-module-shims@2.0.3/dist/es-module-shims.js" crossorigin="anonymous"></script>-->
+
+<!--fog-mode="linear" fog-color="#efb78e" fog-near="1000" fog-far="1200"-->
+<lume-scene webgl physically-correct-lights perspective="600">
+    <lume-camera-rig align-point="0.5 0.5" distance="800"></lume-camera-rig>
+
+    <lume-point-light intensity="1200" align-point="0.5 0.5" position="300 -300 300" color="#EF7D29">
+<!--        <lume-sphere size="20" color="#EF7D29" has="basic-material"></lume-sphere>-->
+    </lume-point-light>
+
+    <lume-point-light intensity="1200" align-point="0.5 0.5" position="-300 300 -300" color="#EF7D29">
+<!--        <lume-sphere size="20" color="#EF7D29" has="basic-material"></lume-sphere>-->
+    </lume-point-light>
+
+    <lume-point-light intensity="1200" align-point="0.5 0.5" position="-300 300 300" color="#EF7D29">
+<!--        <lume-sphere size="20" color="#EF7D29" has="basic-material"></lume-sphere>-->
+    </lume-point-light>
+
+    <lume-point-light intensity="1200" align-point="0.5 0.5" position="300 -300 -300" color="#EF7D29">
+<!--        <lume-sphere size="20" color="#EF7D29" has="basic-material"></lume-sphere>-->
+    </lume-point-light>
+
+    <lume-box id="box1" has="lambert-material" mount-point="0.5 0.5 0.5" position="-100 -200 -500" size="150 100 100" align-point="0.5 0.5" color="#EF7D29" roughness="0.8" receive-shadow="false"></lume-box>
+    <lume-box id="box2" has="phong-material" mount-point="0.5 0.5 0.5" position="-100 80 -500" size="150 350 100" align-point="0.5 0.5" color="#EF7D29" roughness="0.8" receive-shadow="false"></lume-box>
+    <lume-box id="box3" has="physical-material" mount-point="0.5 0.5 0.5" position="150 80 -500" size="150 350 100" align-point="0.5 0.5" color="#EF7D29" roughness="0.8" receive-shadow="false"></lume-box>
+    <lume-box id="box4" has="physical-material" mount-point="0.5 0.5 0.5" position="400 100 -500" size="150 300 100" align-point="0.5 0.5" color="#EF7D29" roughness="0.8" receive-shadow="false"></lume-box>
+
+    <lume-shape
+            id="trapezoid1"
+            has="physical-material"
+            mount-point="0.5 0.5 0.5"
+            shape="0 0, 400 0, 250 150, 150 150"
+            position="25 330 0"
+            size="400 150 100"
+            align-point="0.5 0.5"
+            color="#E84E0F"
+
+            mount-point="0 0"
+            sidedness="double"
+            fitment="none"
+            receive-shadow="false"
+    >
+        <lume-box
+                visible="false"
+                has="basic-material"
+                size-mode="proportional proportional proportional"
+                size="2 2 1"
+                color="black"
+                wireframe
+        ></lume-box>
+    </lume-shape>
+
+    <lume-shape
+            id="trapezoid2"
+            has="physical-material"
+            mount-point="0.5 0.5 0.5"
+            shape="0 0, 300 0, 300 150, -150 150"
+            position="300 -170 0"
+            size="400 150 100"
+            align-point="0.5 0.5"
+            color="#E84E0F"
+
+            mount-point="0 0"
+            sidedness="double"
+            fitment="none"
+            receive-shadow="false"
+    >
+        <lume-box
+                visible="false"
+                has="basic-material"
+                size-mode="proportional proportional proportional"
+                size="2 2 1"
+                color="black"
+                wireframe
+        ></lume-box>
+    </lume-shape>
+</lume-scene>
+
+<div class="ui">
+    <fieldset>
+        <legend><b>Options</b></legend>
+        <label>
+            <input type="checkbox" onClick="toggleRotation()" />
+        </label> Rotation
+    </fieldset>
+</div>
+
+<script type="module">
+  import * as lume from "lume";
+  console.log(lume)
+
+  let rotation = 0;
+
+  window.toggleRotation = () => {
+    if (rotation === 0) {
+      rotation = 2;
+    } else {
+      rotation = 0;
+    }
+  };
+
+  // position
+  box1.position = (x, y) => [x, y, 0];
+  box2.position = (x, y) => [x, y, 0];
+  box3.position = (x, y) => [x, y, 0];
+  box4.position = (x, y) => [x, y, 0];
+  trapezoid1.position = (x, y) => [x, y, 0];
+  trapezoid2.position = (x, y) => [x, y, 0];
+
+  // rotation
+  box1.rotation = (x, y) => [x+rotation, y+rotation];
+  box2.rotation = (x, y) => [x+rotation, y+rotation];
+  box3.rotation = (x, y) => [x+rotation, y+rotation];
+  box4.rotation = (x, y) => [x+rotation, y+rotation];
+  trapezoid1.rotation = (x, y) => [x+rotation, y+rotation];
+  trapezoid2.rotation = (x, y) => [x+rotation, y+rotation];
+</script>
+</body>
+
+<style>
+    html, body {
+        margin: 0;
+        height: 100%;
+        background: #efb78e;
+    }
+
+    .ui {
+        position: absolute;
+        margin: 15px;
+        padding: 10px;
+        top: 0;
+        left: 0;
+        color: black;
+        opacity: 0.5;
+        font-family: sans-serif;
+        background: rgba(241, 138, 81, 0.8);
+        border-radius: 7px;
+    }
+
+    fieldset {
+        border-color: gray;
+        border-radius: 4px;
+        border-style: dashed;
+    }
+</style>
+
+</html>
